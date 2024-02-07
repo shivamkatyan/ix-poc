@@ -7,22 +7,37 @@ import { IxMenu } from '@siemens/ix-angular';
   template: `
     <ix-basic-navigation application-name="Virtual Lab" #sidebar>
       <div class="placeholder-logo" slot="logo">
-      <ix-icon name="ai" size="32"></ix-icon>
+        <ix-icon name="ai" size="32"></ix-icon>
       </div>
       <ix-menu #menu [enableToggleTheme]="true">
-      <ix-menu-avatar image="https://ui-avatars.com/api/?name=John+Doe">
-        <ix-menu-avatar-item label="Option 1"></ix-menu-avatar-item>
-      </ix-menu-avatar>
-        <ix-menu-item home-tab tab-icon="home"> Home </ix-menu-item>
-        <ix-menu-item tab-icon="globe"> Normal Tab </ix-menu-item>
+        <ix-menu-avatar image="https://ui-avatars.com/api/?name=John+Doe">
+          <ix-menu-avatar-item label="Option 1"></ix-menu-avatar-item>
+        </ix-menu-avatar>
+        <ix-menu-item
+          home-tab
+          tab-icon="home"
+          routerLink=""
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </ix-menu-item>
+        <ix-menu-item
+          tab-icon="globe"
+          routerLink="ix-demo"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Normal Tab
+        </ix-menu-item>
         <ix-menu-item tab-icon="star" disabled> Disabled Tab </ix-menu-item>
         <ix-menu-item tab-icon="star"> With other Icon </ix-menu-item>
         <ix-menu-item tab-icon="globe" style="display: none">
           Should not visible
         </ix-menu-item></ix-menu
       >
-      <div>
-        <ng-content> </ng-content>
+      <div class="container">
+        <router-outlet></router-outlet>
       </div>
     </ix-basic-navigation>
   `,
